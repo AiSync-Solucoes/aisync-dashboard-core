@@ -2,6 +2,8 @@
 export { default as AgentBadge } from './components/AgentBadge'
 export { default as Avatar } from './components/Avatar'
 export { default as DashSidebar } from './components/DashSidebar'
+export { default as FilterBar } from './components/FilterBar'
+export type { FilterControl, FilterOption, FilterValue, FilterValues } from './components/FilterBar'
 export { default as GlassCard } from './components/GlassCard'
 export { default as QrModal } from './components/QrModal'
 export { default as SegmentedControl } from './components/SegmentedControl'
