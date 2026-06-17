@@ -1,5 +1,5 @@
 // components/AgentBadge.tsx
-import { AGENTS, type AgentKey } from '@/lib/types'
+import { AGENTS, type AgentKey } from '../lib/types'
 
 interface AgentBadgeProps {
   agent:      AgentKey
