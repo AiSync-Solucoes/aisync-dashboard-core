@@ -1,12 +1,27 @@
 {
-  "name": "aisync-dashboard-core",
+  "name": "@aisync/dashboard",
   "version": "0.1.0",
-  "private": true,
+  "description": "AiSync white-label dashboard — componentes, tipos e config",
+  "exports": {
+    ".": "./index.ts",
+    "./components/*": "./components/*.tsx",
+    "./lib/*": "./lib/*.ts"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint"
+  },
+  "peerDependencies": {
+    "next": ">=15.0.0",
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0",
+    "tailwindcss": ">=4.0.0"
   },
   "dependencies": {
     "lucide-react": "^1.18.0",
