@@ -1,0 +1,106 @@
+/* app/globals.css */
+@import "tailwindcss";
+
+@theme {
+  /* ── Fontes ── */
+  --font-sans: 'Nunito', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* ── Marca ── */
+  --color-brand:        #1A4BFF;
+  --color-brand-light:  #4C6BFF;
+
+  /* ── Accent (teal — Relatórios / CTA principal) ── */
+  --color-accent:       #0FB6A8;
+  --color-accent-mid:   #13C2B3;
+  --color-accent-deep:  #0B8E84;
+
+  /* ── Lilás (Assistência) ── */
+  --color-lilac:        #7C5CFF;
+  --color-lilac-deep:   #5B3CF0;
+
+  /* ── Âmbar (Treinamento) ── */
+  --color-amber:        #F59E0B;
+  --color-amber-light:  #FBBF24;
+  --color-amber-deep:   #D97706;
+
+  /* ── Ink (neutros) ── */
+  --color-ink-50:   #F7F8FA;
+  --color-ink-100:  #EEF0F4;
+  --color-ink-200:  #DDE1E8;
+  --color-ink-400:  #8A93A3;
+  --color-ink-500:  #A9B0BD;
+  --color-ink-600:  #3F4859;
+  --color-ink-800:  #161B2A;
+  --color-ink-900:  #0A0E1A;
+
+  /* ── Status ── */
+  --color-success:       #00A86B;
+  --color-success-text:  #00855A;
+  --color-warning:       #F59E0B;
+  --color-warning-text:  #B45309;
+  --color-danger:        #DC2626;
+  --color-danger-text:   #B91C1C;
+  --color-info:          #0891B2;
+
+  /* ── Raios ── */
+  --radius-frame:  34px;
+  --radius-card:   24px;
+  --radius-tile:   16px;
+  --radius-input:  14px;
+  --radius-chip:   12px;
+  --radius-pill:   99px;
+
+  /* ── Sombras ── */
+  --shadow-glass: 0 14px 44px rgba(18,38,84,.10), inset 0 1px 0 rgba(255,255,255,.75);
+  --shadow-frame: 0 50px 100px -34px rgba(18,38,84,.5), 0 10px 30px rgba(18,38,84,.12);
+  --shadow-lift:  0 2px 7px rgba(20,40,90,.05);
+  --shadow-brand: 0 8px 20px rgba(26,75,255,.4);
+}
+
+/* ── Reset mínimo ── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background: radial-gradient(1200px 700px at 12% -8%, #EEF2FA 0%, transparent 60%),
+              radial-gradient(1100px 700px at 96% 4%, #E9EDF6 0%, transparent 55%),
+              linear-gradient(180deg, #E9EDF5 0%, #F1F4F9 100%);
+  min-height: 100vh;
+}
+button, a { font-family: inherit; }
+button { border: none; cursor: pointer; }
+
+/* ── Animações ── */
+@keyframes floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(18px, -22px) scale(1.06); }
+}
+
+@keyframes livePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,168,107,.5); }
+  50%       { box-shadow: 0 0 0 7px rgba(0,168,107,0); }
+}
+
+@keyframes livePulseBlue {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(26,75,255,.45); }
+  50%       { box-shadow: 0 0 0 7px rgba(26,75,255,0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Helpers ── */
+.glass {
+  background: rgba(255,255,255,.62);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid rgba(255,255,255,.82);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-card);
+}
+
+.float-blob { animation: floatBlob var(--duration, 18s) ease-in-out infinite var(--delay, 0s); }
+.live-pulse  { animation: livePulse 2s ease-in-out infinite; }
