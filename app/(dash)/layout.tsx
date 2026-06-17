@@ -9,9 +9,9 @@ export default function DashLayout({ children }: { children: React.ReactNode }) 
     >
       {/* Frame */}
       <div
-        className="relative flex-shrink-0 overflow-hidden"
+        className="relative flex-shrink-0 overflow-hidden w-full"
         style={{
-          width: 1360, height: 864,
+          height: 'calc(100vh - 72px)',
           borderRadius: 34,
           background: '#EAEEF6',
           boxShadow: '0 50px 100px -34px rgba(18,38,84,.5), 0 10px 30px rgba(18,38,84,.12)',

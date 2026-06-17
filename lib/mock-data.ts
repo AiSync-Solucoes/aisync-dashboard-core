@@ -26,7 +26,8 @@ export const MOCK_THREADS: SellerThread[] = [
     lastMessage:'Posso fazer 15% de desconto nesse lote.', lastAt:'08:42',
     contact:{ id:'c1', name:'Roberto Mendes', phone:'27 99123-4567',
       initials:'RM', avatarColor:'#E8EDF8', category:'Comercial',
-      relationship:'Cliente desde 2023', lastOrder:'Mai 2026', ticket:'R$ 18.400' },
+      relationship:'Cliente desde 2023', lastOrder:'Mai 2026', ticket:'R$ 18.400',
+      history:[ { text:'Cliente recorrente · 8 pedidos', color:'#1A4BFF' }, { text:'Último contato há 2 dias', color:'#00A86B' } ] },
     alertType:'opportunity',
     alertText:'Oportunidade de upsell detectada — cliente perguntou sobre plano maior',
     messages:[
@@ -43,7 +44,8 @@ export const MOCK_THREADS: SellerThread[] = [
     lastMessage:'Vou verificar e te retorno amanhã, pode ser?', lastAt:'08:39',
     contact:{ id:'c2', name:'Fernanda Souza', phone:'27 99234-5678',
       initials:'FS', avatarColor:'#E8F5F4', category:'Lead',
-      relationship:'Primeiro contato', lastOrder:undefined, ticket:undefined },
+      relationship:'Lead novo · hoje', lastOrder:undefined, ticket:undefined,
+      history:[ { text:'Veio do anúncio no Instagram', color:'#1A4BFF' }, { text:'Primeiro contato hoje, 07:55', color:'#00A86B' } ] },
     alertType:'risk',
     alertText:'Lead pode estar perdendo interesse — sem resposta há 40min',
     messages:[
@@ -60,7 +62,8 @@ export const MOCK_THREADS: SellerThread[] = [
     lastMessage:'Tô bem sim! Obrigado por perguntar 😊', lastAt:'08:35',
     contact:{ id:'c3', name:'Paula Gomes', phone:'27 99345-6789',
       initials:'PG', avatarColor:'#EEE8F8', category:'Pessoal',
-      relationship:'Colega pessoal', lastOrder:undefined, ticket:undefined },
+      relationship:'Contato pessoal', lastOrder:undefined, ticket:undefined,
+      history:[ { text:'Conversa fora do contexto comercial', color:'#7C5CFF' } ] },
     alertType:'personal',
     alertText:'Conversa pessoal detectada — não monitorar conteúdo',
     messages:[
@@ -75,7 +78,8 @@ export const MOCK_THREADS: SellerThread[] = [
     lastMessage:'Perfeito! Confirmo o pedido então.', lastAt:'07:55',
     contact:{ id:'c4', name:'Marcos Lima', phone:'27 99456-7890',
       initials:'ML', avatarColor:'#FEF3E2', category:'Comercial',
-      relationship:'Cliente recorrente', lastOrder:'Jun 2026', ticket:'R$ 7.200' },
+      relationship:'Cliente recorrente', lastOrder:'Jun 2026', ticket:'R$ 7.200',
+      history:[ { text:'Cliente fiel · 12 pedidos', color:'#1A4BFF' }, { text:'Último pedido em Jun 2026', color:'#00A86B' } ] },
     alertType:null, alertText:null,
     messages:[
       { id:'m11', fromMe:false, content:'Ana, vou fechar as 50 unidades que conversamos', sentAt:'07:52' },

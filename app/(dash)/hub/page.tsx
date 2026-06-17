@@ -65,7 +65,7 @@ export default function HubPage() {
       <div className="flex-1 grid gap-[18px] min-h-0"
         style={{
           gridTemplateColumns: '1fr 1fr 0.92fr',
-          gridTemplateRows: '242px 168px 150px',
+          gridTemplateRows: 'minmax(220px,1.6fr) minmax(150px,1fr) minmax(140px,0.95fr)',
           gridTemplateAreas: `'conv conv sess' 'rel met sess' 'ag ag ag'`,
         }}>
 

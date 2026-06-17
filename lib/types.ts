@@ -87,6 +87,7 @@ export interface Contact {
   relationship?: string
   lastOrder?:    string
   ticket?:       string
+  history?:      { text: string; color: string }[]
 }
 
 export interface SellerThread {
