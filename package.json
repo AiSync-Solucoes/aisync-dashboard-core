@@ -1,5 +1,5 @@
 {
-  "name": "@aisync/dashboard",
+  "name": "@aisync-solucoes/dashboard",
   "version": "0.1.0",
   "description": "AiSync white-label dashboard — componentes, tipos e config",
   "exports": {

@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: '22'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@aisync'
+          scope: '@aisync-solucoes'
 
       - run: pnpm install --frozen-lockfile
 
