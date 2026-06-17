@@ -85,10 +85,8 @@ export default function DashSidebar({
       style={{
         width: 100,
         padding: '26px 12px',
-        background: 'rgba(255,255,255,.5)',
-        backdropFilter: 'blur(28px) saturate(160%)',
-        WebkitBackdropFilter: 'blur(28px) saturate(160%)',
-        borderRight: '1px solid rgba(255,255,255,.6)',
+        background: '#0A0E1A',
+        borderRight: '1px solid rgba(255,255,255,.08)',
       }}
     >
       {/* Logo */}
@@ -110,7 +108,7 @@ export default function DashSidebar({
                 width: 74,
                 padding: '9px 0 7px',
                 borderRadius: 16,
-                color:      active ? '#fff'        : '#8A93A3',
+                color:      active ? '#fff'        : 'rgba(255,255,255,.38)',
                 background: active ? 'linear-gradient(135deg,#1A4BFF,#3E63FF)' : 'transparent',
                 boxShadow:  active ? '0 8px 20px rgba(26,75,255,.4)' : 'none',
               }}

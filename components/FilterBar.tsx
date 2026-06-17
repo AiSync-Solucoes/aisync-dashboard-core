@@ -6,6 +6,8 @@ export interface FilterOption {
   label: string
 }
 
+export interface DateRange { from: string; to: string }
+
 /** Controle declarativo de filtro. Extensível — novos `kind` entram aqui. */
 export type FilterControl =
   | {
@@ -23,8 +25,13 @@ export type FilterControl =
       /** cor de destaque quando ativo. default: âmbar */
       activeColor?: string
     }
+  | {
+      id: string
+      kind: 'daterange'
+      label: string
+    }
 
-export type FilterValue = string | boolean | undefined
+export type FilterValue = string | boolean | DateRange | undefined
 export type FilterValues = Record<string, FilterValue>
 
 export interface FilterBarProps {
@@ -51,6 +58,17 @@ const PILL: React.CSSProperties = {
   boxShadow: '0 2px 7px rgba(20,40,90,.04)',
 }
 
+const DATE_INPUT: React.CSSProperties = {
+  border: 'none',
+  background: 'transparent',
+  fontSize: 12,
+  fontWeight: 700,
+  color: '#161B2A',
+  outline: 'none',
+  cursor: 'pointer',
+  width: 112,
+}
+
 function Chevron() {
   return (
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8A93A3" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
@@ -68,6 +86,7 @@ export default function FilterBar({ controls, values, onChange, className = '' }
   return (
     <div className={`flex items-center flex-wrap gap-2 ${className}`}>
       {controls.map(control => {
+        // ── toggle ────────────────────────────────────────────────────────
         if (control.kind === 'toggle') {
           const active = values[control.id] === true
           const color = control.activeColor ?? '#F59E0B'
@@ -99,7 +118,54 @@ export default function FilterBar({ controls, values, onChange, className = '' }
           )
         }
 
-        // kind === 'select'
+        // ── daterange ─────────────────────────────────────────────────────
+        if (control.kind === 'daterange') {
+          const val = (values[control.id] as DateRange | undefined) ?? { from: '', to: '' }
+          const hasValue = !!(val.from || val.to)
+          return (
+            <div
+              key={control.id}
+              style={{
+                ...PILL,
+                gap: 6,
+                paddingRight: 10,
+                border: hasValue ? '1px solid rgba(26,75,255,.3)' : (PILL.border as string),
+              }}
+            >
+              <span style={{ color: '#8A93A3', fontWeight: 700, flexShrink: 0, fontSize: 12.5 }}>{control.label}:</span>
+              <input
+                type="date"
+                value={val.from}
+                onChange={e => {
+                  const next: DateRange = { from: e.target.value, to: val.to }
+                  onChange(control.id, (next.from || next.to) ? next : undefined)
+                }}
+                style={DATE_INPUT}
+              />
+              <span style={{ color: '#8A93A3', fontSize: 11, flexShrink: 0 }}>→</span>
+              <input
+                type="date"
+                value={val.to}
+                onChange={e => {
+                  const next: DateRange = { from: val.from, to: e.target.value }
+                  onChange(control.id, (next.from || next.to) ? next : undefined)
+                }}
+                style={DATE_INPUT}
+              />
+              {hasValue && (
+                <button
+                  onClick={() => onChange(control.id, undefined)}
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#8A93A3', fontSize: 14, lineHeight: 1, padding: '0 2px', flexShrink: 0 }}
+                  title="Limpar datas"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+          )
+        }
+
+        // ── select ────────────────────────────────────────────────────────
         const current = (values[control.id] as string | undefined) ?? ''
         return (
           <label key={control.id} style={{ ...PILL, position: 'relative', cursor: 'pointer' }}>
