@@ -11,6 +11,11 @@
     "registry": "https://npm.pkg.github.com",
     "access": "restricted"
   },
+  "files": [
+    "index.ts",
+    "components",
+    "lib"
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
