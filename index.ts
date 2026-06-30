@@ -2,6 +2,7 @@
 export { default as AgentBadge } from './components/AgentBadge'
 export { default as Avatar } from './components/Avatar'
 export { default as DashSidebar } from './components/DashSidebar'
+export type { NavItem } from './components/DashSidebar'
 export { default as FilterBar } from './components/FilterBar'
 export type { FilterControl, FilterOption, FilterValue, FilterValues, DateRange } from './components/FilterBar'
 export { default as GlassCard } from './components/GlassCard'

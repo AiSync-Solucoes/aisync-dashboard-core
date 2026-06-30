@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
-type NavItem = {
+export type NavItem = {
   key:   string
   href:  string
   label: string
@@ -80,14 +80,17 @@ const NAV_ITEMS: NavItem[] = [
 interface DashSidebarProps {
   managerName?:  string
   companyName?:  string
+  extraItems?:   NavItem[]
 }
 
 export default function DashSidebar({
   managerName = 'Lucas',
   companyName = 'Retenlins',
+  extraItems  = [],
 }: DashSidebarProps) {
   const pathname = usePathname()
   const initial  = (managerName.trim()[0] ?? 'L').toUpperCase()
+  const allItems = extraItems.length > 0 ? [...NAV_ITEMS, ...extraItems] : NAV_ITEMS
 
   return (
     <aside
@@ -106,7 +109,7 @@ export default function DashSidebar({
 
       {/* Nav items */}
       <nav className="flex flex-col gap-[7px] w-full items-center flex-1">
-        {NAV_ITEMS.map(item => {
+        {allItems.map(item => {
           const active = pathname.startsWith(item.href)
           return (
             <Link
